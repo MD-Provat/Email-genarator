@@ -1,0 +1,23 @@
+import random
+import string
+
+def generate_random_email():
+    # generate a random username
+    username_length = random.randint(6, 12)
+    username = ''.join(random.choices(string.ascii_lowercase + string.digits, k=username_length))
+
+    # generate a random domain name
+    domain_length = random.randint(5, 10)
+    domain = ''.join(random.choices(string.ascii_lowercase, k=domain_length))
+
+    # pick a random TLD (top-level domain)
+    tlds = ['com', 'net', 'org', 'edu', 'gov']
+    tld = random.choice(tlds)
+
+    # combine the username, domain, and TLD to create the email address
+    email = f"{username}@{domain}.{tld}"
+    return email
+
+# example usage
+random_email = generate_random_email()
+print(random_email)
